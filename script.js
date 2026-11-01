@@ -2,6 +2,9 @@
 // Open the invitation when the guest clicks the button.
 const openButton = document.getElementById("open-invitation");
 const openingCover = document.getElementById("opening-cover");
+const promotionDialog = document.getElementById("film-promotion");
+const closePromotionButton = document.getElementById("close-promotion");
+const invitationTitle = document.getElementById("invitation-title");
 
 const countdown = document.getElementById("wedding-countdown");
 const countdownFields = {
@@ -51,6 +54,24 @@ openButton?.addEventListener("click", () => {
   window.setTimeout(() => {
     openingCover?.remove();
   }, 1300);
+
+  window.setTimeout(() => {
+    promotionDialog?.showModal();
+  }, 8000);
+});
+
+closePromotionButton?.addEventListener("click", () => {
+  promotionDialog?.close();
+});
+
+promotionDialog?.addEventListener("close", () => {
+  invitationTitle?.focus();
+});
+
+promotionDialog?.addEventListener("click", (event) => {
+  if (event.target === promotionDialog) {
+    promotionDialog.close();
+  }
 });
 
 // WhatsApp RSVP contacts.

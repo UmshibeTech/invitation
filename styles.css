@@ -614,6 +614,104 @@ footer a:hover {
   right: 0;
 }
 
+/* WEDDING FILMS PROMOTION */
+
+.promotion-dialog {
+  position: fixed;
+  width: min(440px, calc(100% - 32px));
+  max-width: none;
+  padding: 46px 32px 32px;
+  border: 1px solid var(--gold);
+  color: var(--cream);
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, #356d54, var(--forest) 58%, var(--deep));
+  box-shadow: 0 24px 80px #0006;
+}
+
+.promotion-dialog::backdrop {
+  background: #071b16bd;
+  backdrop-filter: blur(3px);
+}
+
+.promotion-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #d9b66c77;
+  color: var(--gold-light);
+  background: transparent;
+  font: 300 1.7rem/1 Arial, sans-serif;
+  cursor: pointer;
+}
+
+.promotion-close:hover {
+  background: #ffffff12;
+}
+
+.promotion-label {
+  margin: 0 0 12px;
+  color: var(--gold);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.promotion-dialog h2 {
+  margin: 0;
+  color: var(--cream);
+  font: 500 2.4rem/1 "Cormorant Garamond", Georgia, serif;
+}
+
+.promotion-copy {
+  margin: 16px 0 24px;
+  color: #f0eadc;
+  font-size: 0.86rem;
+}
+
+.promotion-link,
+.promotion-whatsapp {
+  display: block;
+  padding: 13px 16px;
+  border: 1px solid var(--gold);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.promotion-link {
+  color: var(--deep);
+  background: var(--gold);
+}
+
+.promotion-link:hover {
+  background: var(--gold-light);
+}
+
+.promotion-link span {
+  margin-left: 6px;
+}
+
+.promotion-whatsapp {
+  margin-top: 10px;
+  color: var(--cream);
+  background: transparent;
+}
+
+.promotion-whatsapp:hover {
+  background: #ffffff12;
+}
+
+.promotion-dialog a:focus-visible,
+.promotion-close:focus-visible {
+  outline: 2px solid var(--cream);
+  outline-offset: 3px;
+}
+
 /* OPENING COVER WITH THE COUPLE PHOTO */
 
 body.invitation-locked {
