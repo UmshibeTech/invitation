@@ -3,6 +3,45 @@
 const openButton = document.getElementById("open-invitation");
 const openingCover = document.getElementById("opening-cover");
 
+const countdown = document.getElementById("wedding-countdown");
+const countdownFields = {
+  days: countdown?.querySelector('[data-countdown="days"]'),
+  hours: countdown?.querySelector('[data-countdown="hours"]'),
+  minutes: countdown?.querySelector('[data-countdown="minutes"]'),
+  seconds: countdown?.querySelector('[data-countdown="seconds"]')
+};
+const weddingDate = new Date("2026-12-13T10:00:00+02:00").getTime();
+
+if (countdown && Object.values(countdownFields).every(Boolean)) {
+  const updateCountdown = () => {
+    const remaining = weddingDate - Date.now();
+
+    if (remaining <= 0) {
+      countdown.innerHTML = '<p class="countdown-finished">The celebration is here!</p>';
+      return false;
+    }
+
+    const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((remaining / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((remaining / (1000 * 60)) % 60);
+    const seconds = Math.floor((remaining / 1000) % 60);
+
+    countdownFields.days.textContent = String(days);
+    countdownFields.hours.textContent = String(hours).padStart(2, "0");
+    countdownFields.minutes.textContent = String(minutes).padStart(2, "0");
+    countdownFields.seconds.textContent = String(seconds).padStart(2, "0");
+    return true;
+  };
+
+  if (updateCountdown()) {
+    const countdownInterval = window.setInterval(() => {
+      if (!updateCountdown()) {
+        window.clearInterval(countdownInterval);
+      }
+    }, 1000);
+  }
+}
+
 openButton?.addEventListener("click", () => {
   document.body.classList.add("invitation-open");
   document.body.classList.remove("invitation-locked");
@@ -61,4 +100,3 @@ document.querySelectorAll("[data-contact]").forEach((button) => {
     window.open(whatsappURL, "_blank", "noopener,noreferrer");
   });
 });
-

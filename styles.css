@@ -788,7 +788,54 @@ body.invitation-locked {
 .cover-date {
   font: italic 1.5rem "Cormorant Garamond", Georgia, serif;
   color: var(--gold-light);
-  margin: 0 0 22px;
+  margin: 0 0 14px;
+}
+
+.countdown {
+  margin: 0 auto 22px;
+}
+
+.countdown-label {
+  margin: 0 0 10px;
+  color: #eee4cf;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.countdown-units {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+.countdown-unit {
+  display: grid;
+  gap: 2px;
+  padding: 8px 4px;
+  border: 1px solid #d9b66c77;
+  background: #09281f66;
+}
+
+.countdown-value {
+  color: var(--gold-light);
+  font: 500 1.65rem/1.1 "Cormorant Garamond", Georgia, serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-name {
+  color: #eee4cf;
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.countdown-finished {
+  margin: 0;
+  color: var(--gold-light);
+  font: italic 1.2rem "Cormorant Garamond", Georgia, serif;
 }
 
 .open-invitation {
@@ -931,8 +978,27 @@ body.invitation-open .invitation {
     font-size: 0.78rem;
   }
 
+  .countdown-units {
+    gap: 5px;
+  }
+
+  .countdown-value {
+    font-size: 1.45rem;
+  }
+
+  .countdown-name {
+    font-size: 0.5rem;
+  }
+
   .cover-photo {
     object-position: 54% center;
+  }
+}
+
+@media (max-height: 760px) {
+  .opening-cover {
+    overflow-y: auto;
+    place-items: start center;
   }
 }
 
